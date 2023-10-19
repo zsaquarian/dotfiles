@@ -9,7 +9,7 @@ function M.config()
   require('mini.statusline').setup()
   require('mini.comment').setup()
   require('mini.pairs').setup()
-  require('mini.completion').setup()
+  -- require('mini.completion').setup()
   require('mini.bracketed').setup()
   require('mini.tabline').setup()
 

@@ -23,3 +23,12 @@ vim.opt.undofile = true           -- create persistent undo file
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- clear all notifications on entering insert mode
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  group = vim.api.nvim_create_augroup("NotifyClearGrp", {}),
+  pattern = "*",
+  callback = function()
+    require("notify").dismiss({ silent = true })
+  end
+})
