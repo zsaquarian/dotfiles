@@ -20,6 +20,12 @@ keymap("n", "j", "gj", opts)
 -- file explorer
 keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 
+-- telescope
+-- local builtin = require('telescope.builtin')
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fr", ":Telescope resume<CR>", opts)
+
 -- dismiss all notifications
 keymap("n", "<leader>x", ":lua require('notify').dismiss({ notify = true })<cr>", opts)
 
