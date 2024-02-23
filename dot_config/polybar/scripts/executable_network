@@ -1,0 +1,27 @@
+#!/bin/fish
+
+switch $argv[1]
+  case up
+    pamixer --increase 5
+  case down
+    pamixer --decrease 5
+  case mute
+    pamixer --toggle-mute
+end
+
+set VOLUME (pamixer --get-volume)
+set MUTED (pamixer --get-mute)
+set MUTE_ICON 󰖁
+set LOW_ICON 󰕿
+set MEDIUM_ICON 󰖀
+set HIGH_ICON 󰕾
+
+if [ $MUTED = "true" ]
+  echo $MUTE_ICON
+else if [ $VOLUME -gt 80 ]
+  echo $HIGH_ICON
+else if [ $VOLUME -gt 40 ]
+  echo $MEDIUM_ICON
+else
+  echo $LOW_ICON
+end
