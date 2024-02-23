@@ -1,5 +1,5 @@
 local M = {
-  'echasnovski/mini.nvim', 
+  'echasnovski/mini.nvim',
   event = 'BufEnter',
   version = '*',
 }
@@ -49,6 +49,10 @@ function M.config()
 
     clues = {
       -- Enhance this by adding descriptions for <Leader> mapping groups
+      { mode = 'n', keys = '<Leader>f', desc = '+Find' },
+      { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
+      { mode = 'n', keys = '<Leader>c', desc = '+CompetiTest' },
+
       miniclue.gen_clues.builtin_completion(),
       miniclue.gen_clues.g(),
       miniclue.gen_clues.marks(),
@@ -61,18 +65,18 @@ function M.config()
   starter = require('mini.starter')
   starter.setup({
     header = tostring([[
-ZZZZZZZZZZZZZZZZZZZ     SSSSSSSSSSSSSSS          444444444     222222222222222    
-Z:::::::::::::::::Z   SS:::::::::::::::S        4::::::::4    2:::::::::::::::22  
-Z:::::::::::::::::Z  S:::::SSSSSS::::::S       4:::::::::4    2::::::222222:::::2 
-Z:::ZZZZZZZZ:::::Z   S:::::S     SSSSSSS      4::::44::::4    2222222     2:::::2 
-ZZZZZ     Z:::::Z    S:::::S                 4::::4 4::::4                2:::::2 
-        Z:::::Z      S:::::S                4::::4  4::::4                2:::::2 
-       Z:::::Z        S::::SSSS            4::::4   4::::4             2222::::2  
-      Z:::::Z          SS::::::SSSSS      4::::444444::::444      22222::::::22   
-     Z:::::Z             SSS::::::::SS    4::::::::::::::::4    22::::::::222     
-    Z:::::Z                 SSSSSS::::S   4444444444:::::444   2:::::22222        
-   Z:::::Z                       S:::::S            4::::4    2:::::2             
-ZZZ:::::Z     ZZZZZ              S:::::S            4::::4    2:::::2             
+ZZZZZZZZZZZZZZZZZZZ     SSSSSSSSSSSSSSS          444444444     222222222222222
+Z:::::::::::::::::Z   SS:::::::::::::::S        4::::::::4    2:::::::::::::::22
+Z:::::::::::::::::Z  S:::::SSSSSS::::::S       4:::::::::4    2::::::222222:::::2
+Z:::ZZZZZZZZ:::::Z   S:::::S     SSSSSSS      4::::44::::4    2222222     2:::::2
+ZZZZZ     Z:::::Z    S:::::S                 4::::4 4::::4                2:::::2
+        Z:::::Z      S:::::S                4::::4  4::::4                2:::::2
+       Z:::::Z        S::::SSSS            4::::4   4::::4             2222::::2
+      Z:::::Z          SS::::::SSSSS      4::::444444::::444      22222::::::22
+     Z:::::Z             SSS::::::::SS    4::::::::::::::::4    22::::::::222
+    Z:::::Z                 SSSSSS::::S   4444444444:::::444   2:::::22222
+   Z:::::Z                       S:::::S            4::::4    2:::::2
+ZZZ:::::Z     ZZZZZ              S:::::S            4::::4    2:::::2
 Z::::::ZZZZZZZZ:::Z  SSSSSSS     S:::::S            4::::4    2:::::2       222222
 Z:::::::::::::::::Z  S::::::SSSSSS:::::S          44::::::44  2::::::2222222:::::2
 Z:::::::::::::::::Z  S:::::::::::::::SS           4::::::::4  2::::::::::::::::::2

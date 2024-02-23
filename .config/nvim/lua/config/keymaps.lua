@@ -18,16 +18,25 @@ keymap("n", "k", "gk", opts)
 keymap("n", "j", "gj", opts)
 
 -- file explorer
-keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
+keymap("n", "<leader>e", ":Neotree toggle<CR>", vim.tbl_extend('keep', opts, { desc = 'Toggle Explorer' }))
 
 -- telescope
 -- local builtin = require('telescope.builtin')
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fr", ":Telescope resume<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", vim.tbl_extend('keep', opts, { desc = 'Find Files' }))
+keymap("n", "<leader>fl", ":Telescope live_grep<CR>", vim.tbl_extend('keep', opts, { desc = 'Find Line' }))
+keymap("n", "<leader>fr", ":Telescope resume<CR>", vim.tbl_extend('keep', opts, { desc = 'Resume Search' }))
+
+-- buffers
+keymap("n", "<leader>bw", ":bw<CR>", vim.tbl_extend('keep', opts, { desc = 'Buffer Wipe' }))
+keymap("n", "<leader>bd", ":bd<CR>", vim.tbl_extend('keep', opts, { desc = 'Buffer Delete' }))
 
 -- dismiss all notifications
-keymap("n", "<leader>x", ":lua require('notify').dismiss({ notify = true })<cr>", opts)
+keymap("n", "<leader>x", ":lua require('notify').dismiss({ notify = true })<cr>",
+  vim.tbl_extend('keep', opts, { desc = 'Close Notifications' }))
+
+-- competitest
+keymap("n", "<leader>cr", ":CompetiTest receive problem<CR>", vim.tbl_extend('keep', opts, { desc = 'Receive Problem' }))
+keymap("n", "<leader>cR", ":CompetiTest run<CR>", vim.tbl_extend('keep', opts, { desc = 'Run Code' }))
 
 -- === visual mode ===
 -- stay in visual mode after indenting

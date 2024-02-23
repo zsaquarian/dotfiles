@@ -1,9 +1,27 @@
-#!/bin/sh
+#!/bin/fish
 
-if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
-	wifiicon="$(awk '/^\s*w/ { print " 說", int($3 * 100 / 70)"%"}' /proc/net/wireless)"
-elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
-	grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="" || wifiicon="ﲁ"
-fi
+switch $argv[1]
+  case up
+    pamixer --increase 5
+  case down
+    pamixer --decrease 5
+  case mute
+    pamixer --toggle-mute
+end
 
-echo "$wifiicon"
+set VOLUME (pamixer --get-volume)
+set MUTED (pamixer --get-mute)
+set MUTE_ICON 󰖁
+set LOW_ICON 󰕿
+set MEDIUM_ICON 󰖀
+set HIGH_ICON 󰕾
+
+if [ $MUTED = "true" ]
+  echo $MUTE_ICON
+else if [ $VOLUME -gt 80 ]
+  echo $HIGH_ICON
+else if [ $VOLUME -gt 40 ]
+  echo $MEDIUM_ICON
+else
+  echo $LOW_ICON
+end
