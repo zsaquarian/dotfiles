@@ -2,4 +2,4 @@
 chromium &
 spotify-launcher &
 obsidian &
-kitty zellij -l .config/zellij/bg.kdl -s bg &
+alacritty -e btop &
