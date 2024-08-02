@@ -1,5 +1,5 @@
 #!/bin/env bash
-chromium &
+vivaldi &
 spotify-launcher &
 obsidian &
 alacritty -e btop &
